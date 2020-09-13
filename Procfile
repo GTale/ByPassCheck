@@ -1,1 +1,0 @@
-web: ./typecho/start.sh

@@ -1,5 +1,0 @@
-applications:
-- path: .
-  name: bbl
-  random-route: true
-  memory: 128M
