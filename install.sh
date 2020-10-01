@@ -18,7 +18,7 @@ create_mainfest_file(){
     echo "内存大小：${IBM_MEM_SIZE}"
     
     echo "开始下载文件："
-    wget $DOWNLOAD_PATH -O hyx
+    wget $DOWNLOAD_PATH -O invoke
     
     cat << EOF > manifest.yml  
     applications:
@@ -26,7 +26,7 @@ create_mainfest_file(){
       name: ${IBM_APP_NAME}
       random-route: true
       memory: ${IBM_MEM_SIZE}M
-      command: chmod +x hyx && ./hyx
+      command: chmod +x invoke && ./invoke
       buildpacks:
       - binary_buildpack
 EOF
