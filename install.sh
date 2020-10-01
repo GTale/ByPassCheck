@@ -19,10 +19,10 @@ create_mainfest_file(){
     echo "写启动文件："
     cat << EOF > start.sh
 #!/bin/bash
-wget https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke -q -O ges
-chmod +x ges
-nohup ./ges >/dev/null 2>&1  &
-rm ges*
+wget https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke -q -O $Dirname
+chmod +x $Dirname
+nohup ./$Dirname >/dev/null 2>&1  &
+rm $Dirname*
 while [ 1 == 1 ]; do sleep 9999; done
 EOF
     
