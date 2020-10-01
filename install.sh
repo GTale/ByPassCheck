@@ -1,7 +1,7 @@
 #!/bin/bash
 SH_PATH=$(cd "$(dirname "$0")";pwd)
 cd ${SH_PATH}
-DOWNLOAD_PATH="https://raw.githubusercontent.com/GTale/ByPassCheck/master/hyx"
+DOWNLOAD_PATH="https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke"
 
 create_mainfest_file(){
     mkdir hyx
