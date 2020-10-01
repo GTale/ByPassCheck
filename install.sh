@@ -2,8 +2,9 @@
 SH_PATH=$(cd "$(dirname "$0")";pwd)
 cd ${SH_PATH}
 create_mainfest_file(){
-    mkdir hyx
-    cd hyx
+    Dirname=$$
+    mkdir $Dirname
+    cd $Dirname
     echo "进行配置。。。"
     read -p "请输入账号: " IBM_ACCOUNT
     read -p "请输入密码: " IBM_PASSWD
