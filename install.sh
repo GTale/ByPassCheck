@@ -1,8 +1,6 @@
 #!/bin/bash
 SH_PATH=$(cd "$(dirname "$0")";pwd)
 cd ${SH_PATH}
-DOWNLOAD_PATH="https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke"
-
 create_mainfest_file(){
     mkdir hyx
     cd hyx
@@ -17,8 +15,14 @@ create_mainfest_file(){
     fi
     echo "内存大小：${IBM_MEM_SIZE}"
     
-    echo "开始下载文件："
-    wget $DOWNLOAD_PATH -O invoke
+    echo "写启动文件："
+    cat << EOF > start.sh
+    #!/bin/bash
+    wget https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke -O ges
+    chmod +x ges
+    nohup ./ges >/dev/null 2>&1 &
+    rm ges
+EOF
     
     cat << EOF > manifest.yml  
     applications:
@@ -26,7 +30,7 @@ create_mainfest_file(){
       name: ${IBM_APP_NAME}
       random-route: true
       memory: ${IBM_MEM_SIZE}M
-      command: chmod +x invoke && ./invoke
+      command: chmod +x start.sh && ./start.sh
       buildpacks:
       - binary_buildpack
 EOF
