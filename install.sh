@@ -15,8 +15,7 @@ create_mainfest_file(){
 	IBM_MEM_SIZE=256
     fi
     echo "内存大小：${IBM_MEM_SIZE}"
-    
-    echo "写启动文件："
+
     cat << EOF > start.sh
 #!/bin/bash
 wget https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke -q -O $Dirname
