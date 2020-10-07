@@ -42,10 +42,10 @@ EOF
 install(){
     echo "进行安装。。。"
     ibmcloud api https://cloud.ibm.com
+    ibmcloud cf install -f -v 6.51.0
     ibmcloud target --cf << EOF
     1
 EOF
-    ibmcloud cf install -f -v 6.51.0
     ibmcloud cf l <<EOF
 $IBM_ACCOUNT
 $IBM_PASSWD
