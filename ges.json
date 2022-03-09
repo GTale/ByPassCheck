@@ -1,0 +1,28 @@
+ {
+        "inbounds": [
+            {
+                "port": 80,
+                "protocol": "vmess",
+                "settings": {
+                    "clients": [
+                        {
+                            "id": "b3573d8b-467e-4927-bb2b-70a82e2390fd",
+                            "alterId": 128
+                        }
+                    ]
+                },
+                "streamSettings": {
+                    "network":"ws",
+                    "wsSettings": {
+                        "path": "/hls2024.msi.vosip"
+                    }
+                }
+            }
+        ],
+        "outbounds": [
+            {
+                "protocol": "freedom",
+                "settings": {}
+            }
+        ]
+    }
